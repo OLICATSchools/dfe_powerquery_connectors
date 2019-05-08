@@ -14,6 +14,6 @@ let
     ErrorValue = Value.Metadata(Web.Contents(MainURL, [ManualStatusHandling={404}]))[Response.Status],
     
     // If no data found at MainURL get data from BackupURL
-    Source = if ErrorValue = 404 then Csv.Document(Web.Contents(BackupURL),[Delimiter=",", Encoding=1252, QuoteStyle=QuoteStyle.None]) else Csv.Document(Web.Contents(MainURL),[Delimiter=",", Encoding=1252, QuoteStyle=QuoteStyle.None]),
+    Source = if ErrorValue = 404 then Csv.Document(Web.Contents(BackupURL),[Delimiter=",", Encoding=1252, QuoteStyle=QuoteStyle.None]) else Csv.Document(Web.Contents(MainURL),[Delimiter=",", Encoding=1252, QuoteStyle=QuoteStyle.None])
 in
     Source
