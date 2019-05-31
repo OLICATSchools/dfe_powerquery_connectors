@@ -12,23 +12,39 @@ This script gets the most up to date snapshot of information stored on Get Infor
 
 ## PerformanceTables Data
 
-This script gets the most up to date snapshot of information stored in the Compare School Performance Tables. Whereas the GIAS data is a single snapshot of all instituation's basic details, the sources of information available via the Performance Tables include:
+This script gets the most up to date snapshot of information stored in the Compare School Performance Tables. Whereas the GIAS service provides a single dataset of basic details on every school, the Performance Tables have a variety of different datasets available.
 
-  * General school information
-  * Spring census summary
-  * Pupil absences
-  * Exclusions
-  * Workforce summary
-  * Spend per pupil
-  * Inspection outcomes
-  * Destinations data
-  * Attainment and Progress data
-  * Multi-academy Trust information
+By default the script downloads the Spring Census summary data for the most recently published Performance Tables. Changing the CENSUS keyword for one of those listed below will download a different dataset:
 
-Each of these datasets is accessed by changing the filter parameter in the URL. A list of valid filter parameters will follow soon, for now the script downloads the Spring Census summary data for the most recently published Performance Tables.
+  Keyword | Description
+  --- | ---
+  SPINE | Spine (general school information)
+  KS2 | Final Key Stage 2 headline results
+  KS4 | Final Key Stage 4 headline results
+  KS4PROV | Provisional Key Stage 4 headline results
+  KS4UNDERLYING | Key Stage 4 qualification and subject level data
+  KS5 | Final Key Stage 5 headline results
+  KS5UNDERLYING | Key Stage 5 qualification and subject level data  
+  VAQUAL | Key Stage 5 value added qualification level data
+  VASUBJ | Key Stage 5 value added subject level data 
+  KS5APPR | Apprenticeships data
+  KS5MATHSCI | Key Stage 5 Maths and Science A levels
+  KS4DESTINATION | Key Stage 4 destinations data
+  KS5DESTINATION | Key Stage 5 destinations data
+  PUPDESTPROV | Provisional Key Stage 4 destinations data
+  PUPILABSENCE | Pupil absence data
+  CENSUS | Census (details about pupil types) *- downloaded by default*
+  WORKFORCE | School workforce data
+  SPENDPERPUPIL | Spend per pupil
+  SPENDPERPUPILGROUPED | Spend per pupil grouped data
+  SPENDPERPUPILFULL | Spend per pupil full dataset
+  KS2MATS | Key Stage 2 Multi-academy trust data
+  KS4MATS | Key Stage 4 Multi-academy trust data
+  KS5MATS | Key Stage 5 Multi-academy trust data
+  
 
 Like the GIAS Data script, this script accesses snapshots using a combination of date information. In this case the starting and ending years of an academic year separated by a "-". 
 
-Unlike the GIAS dataset, different parts of the Performance Tables are released at different times. To ensure the most up to date information is captured the script will look for datasets linked to the previous academic year first. If no data is yet available for the previous year, the script will collect data from two years previous.
+Unlike the GIAS dataset, different parts of the Performance Tables are released at different times. To ensure the most up to date information is captured the script will look for datasets linked to the previous academic year first. If no data is yet available for the previous year, the script will collect the most recent available dataset.
 
 
