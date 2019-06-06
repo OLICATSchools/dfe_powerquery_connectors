@@ -3,7 +3,7 @@ let
     YearRef = if Date.Month(DateTime.LocalNow()) >= 9 then Date.Year(DateTime.LocalNow()) - 1 else Date.Year(DateTime.LocalNow()) - 2,
     
     // Change this to get different datasets
-    Keyword = "CENSUS"
+    Keyword = "CENSUS",
 
     // Create URL for previous academic year
     // Edit uppercase keyword after &filters= to get different types of data
