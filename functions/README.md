@@ -2,6 +2,10 @@
 
 This function can be used when creating a new column to look for scores, ranks or deciles from any of the 10 indicies of deprivation. These indicies were last updated in 2015.
 
+### To use the function
+1. In the Query Editor create a blank query & past the script into it to set the function up. 
+2. Go to a dataset containing postcodes and add a column using the Invoke Custom Function button to get the function to run.
+
 The function takes three parameters:
 
 ### Postcode
