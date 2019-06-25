@@ -1,27 +1,30 @@
-let imd_lookup = (postcode as text, measure as text, index as text) =>    
+let imd_lookup = (postcode as text, domain as text, measure as text) =>    
     let 
 
-        selected_measure = 
-            if Text.Lower(measure) = "rank" then "rankObs" else 
-            if Text.Lower(measure) = "decile" then "decObs" else "scoreObs",
+        upper_domain = Text.Upper(domain),
+        upper_measure = Text.Upper(measure),
+        
+        selected_domain =
+            if upper_domain = "IMD" then "combineddeprivation" else
+            if upper_domain = "INCOME" then "incomedeprivation" else 
+            if upper_domain = "EMPLOYMENT" then "employmentdeprivation" else 
+            if upper_domain = "EDUCATION" then "educskilltraindepriv" else 
+            if upper_domain = "HEALTH" then "healthdeprivdisability" else 
+            if upper_domain = "CRIME" then "crime" else 
+            if upper_domain = "HOUSING" then "barrierstohousservices" else 
+            if upper_domain = "LIVING" then "livingenvdepriv" else 
+            if upper_domain = "IDAOPI" then "idaopi" else "idaci",
 
-        selected_index =
-            if Text.Lower(index) = "imd" then "combineddeprivation" else
-            if Text.Lower(index) = "income" then "incomedeprivation" else 
-            if Text.Lower(index) = "employment" then "employmentdeprivation" else 
-            if Text.Lower(index) = "education" then "educskilltraindepriv" else 
-            if Text.Lower(index) = "health" then "healthdeprivdisability" else 
-            if Text.Lower(index) = "crime" then "crime" else 
-            if Text.Lower(index) = "housing" then "barrierstohousservices" else 
-            if Text.Lower(index) = "living" then "livingenvdepriv" else 
-            if Text.Lower(index) = "idaopi" then "idaopi" else "idaci",
+        selected_measure = 
+            if upper_measure = "DECILE" then "decObs" else 
+            if upper_measure = "SCORE" then "scoreObs" else "rankObs",
 
         base_query = 
         "PREFIX os-pc: <http://data.ordnancesurvey.co.uk/ontology/postcode/>
         PREFIX os-pcu: <http://data.ordnancesurvey.co.uk/id/postcodeunit/>
 
         SELECT ?measure WHERE {
-            ?obs <http://opendatacommunities.org/def/ontology/communities/societal_wellbeing/imd/indices> <http://opendatacommunities.org/def/concept/general-concepts/imd/" & selected_index & ">.
+            ?obs <http://opendatacommunities.org/def/ontology/communities/societal_wellbeing/imd/indices> <http://opendatacommunities.org/def/concept/general-concepts/imd/" & selected_domain & ">.
             ?obs <http://opendatacommunities.org/def/ontology/geography/refArea> ?areauri .
             ?obs <http://opendatacommunities.org/def/ontology/time/refPeriod> ?perioduri .
             ?obs <http://opendatacommunities.org/def/ontology/communities/societal_wellbeing/imd/" & selected_measure & "> ?measure .
