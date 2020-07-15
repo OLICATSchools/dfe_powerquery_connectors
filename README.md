@@ -12,5 +12,4 @@ These are PowerQuery scripts that will draw down data sources from Department fo
 
 ## Functions
 
-These are helper functions that can supplement existing datasets, for example the IMD lookup function
-
+These are helper functions that can supplement existing datasets, for example the IMD lookup function. The IMD function isn't currently working due to a change in either the OS or MHCLG api.
