@@ -1,3 +1,5 @@
+### These scripts don't currently work due to a change in either OS of MHCLG systems.
+
 ## IMD lookup
 
 This function can be used when creating a new column to look for scores, ranks or deciles from any of the 10 indicies of deprivation. These indicies were last updated in 2015.
